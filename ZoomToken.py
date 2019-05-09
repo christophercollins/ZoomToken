@@ -66,6 +66,10 @@ class ZoomToken:
     def generate_token(self):
         self.generate_timestamp()
         self.token_generated = self.get_time()
-        encode = jwt.encode({'iss': self.api_key, 'exp': self.token_expiration}, self.api_secret, algorithm='HS256',
-                            headers={'typ': 'JWT'})
-        return encode.decode('utf-8')
+        encode = jwt.encode(
+            {"iss": self.api_key, "exp": self.token_expiration},
+            self.api_secret,
+            algorithm="HS256",
+            headers={"typ": "JWT"},
+        )
+        return encode.decode("utf-8")
